@@ -22,6 +22,7 @@ import jp.co.sss.lms.util.Constants;
  * @author 東京ITスクール
  */
 @Controller
+
 @RequestMapping("/attendance")
 public class AttendanceController {
 
