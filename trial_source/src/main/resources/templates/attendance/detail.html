@@ -85,6 +85,16 @@
 			const hours = ('0' + today.getHours()).slice(-2);
 			const minutes = ('0' + today.getMinutes()).slice(-2);
 			return hours + ':' + minutes;
+			
+			// TODO サーバー側で登録したBoolean値を受け取る (true または false が入る) 		
+		const notEnterCount = /*[[${notEnterCount}]]*/false;
+		// TODO 画面読み込み完了時に実行 		
+		window.addEventListener('DOMContentLoaded', function () {
+			// TODO  Boolean値がtrueならアラートを出す 			
+			if (notEnterCount) {
+				alert("過去の勤怠に未入力があります。");
+				} 
+    }); 
 		}
 	</script>
 
