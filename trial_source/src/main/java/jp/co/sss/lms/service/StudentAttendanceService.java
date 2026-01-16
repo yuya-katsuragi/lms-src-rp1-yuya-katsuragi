@@ -337,15 +337,15 @@ public class StudentAttendanceService {
 
 	public boolean notEnterCount() throws ParseException {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String today = sdf.format(new Date());
 
 		int count = tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, today);
 
 		if (count > 0) {
-	        return true;
-	    } else {
-	        return false;
-	    }
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

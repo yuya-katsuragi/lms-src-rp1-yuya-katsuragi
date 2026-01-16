@@ -85,12 +85,13 @@
 			blank_time = #{blankTime}
 		WHERE student_attendance_id = #{studentAttendanceId}
 	</update>
-	<select id="notEnterCount" resultType="jp.co.sss.lms.entity.TStudentAttendance">
+	<select id="notEnterCount" resultType="java.lang.Integer">
 	SELECT COUNT(*) From t_student_attendance
 	WHERE lms_user_id = #{lmsUserId} AND delete_flg = #{deleteFlg}
-	AND  training_date = #{trainingDate} AND stauts !=1
-	AND training_start_time ='' OR training_end_time = '' 
-	OR training_start_time IS NULL OR training_end_time IS NULL
+	AND  training_date &lt; CAST(#{trainingDate} AS DATE)
+	AND status !=1
+	AND (training_start_time ='' OR training_end_time = '' 
+	OR training_start_time IS NULL OR training_end_time IS NULL)
 	
 	</select>
 
