@@ -75,29 +75,29 @@
 
 	<script type="text/javascript" th:inline="javascript">
 		$(function() {
+			// 1. 時計の表示処理
 			$("#now").text('現在の時刻は　' + getClock() + '　です。');
 			setInterval(function() {
 				$("#now").text('現在の時刻は　' + getClock() + '　です。');
 			}, 1000);
+
+			// 2. サーバー側から送られた判定結果を取得
+			// ※Controllerの model.addAttribute("notEntered", notEntered) と連動します
+			const notEntered = /*[[${notEntered}]]*/ false;
+
+			// 3. 判定が true ならアラートを出す
+			if (notEntered) {
+				alert("過去日に未入力の勤怠があります。確認してください。");
+			}
 		});
+
+		// 時刻計算用の関数
 		function getClock() {
 			const today =  new Date();
 			const hours = ('0' + today.getHours()).slice(-2);
 			const minutes = ('0' + today.getMinutes()).slice(-2);
 			return hours + ':' + minutes;
-			}
-			
-			
-			// TODO サーバー側で登録したBoolean値を受け取る (true または false が入る) 		
-		const notEntered = /*[[${notEntered}]]*/false;
-		// TODO 画面読み込み完了時に実行 		
-		window.addEventListener('DOMContentLoaded', function () {
-			// TODO  Boolean値がtrueならアラートを出す 			
-			if (notEntered) {
-				alert("未入力");
-				} 
-				
-    }); 
+		}
 	</script>
 
 </body>
