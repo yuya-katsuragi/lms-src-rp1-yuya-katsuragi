@@ -335,13 +335,25 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 
+	
+	
+	/**
+	 * 現在より過去に未入力が無いかチェック
+	 * @return 過去に未入力データが存在する場合はtrue、存在しない場合はfalse
+	 * @author 葛城 - Task.25
+	 * @throws ParseException
+	 */
 	public boolean notEnterCount() throws ParseException {
-
+        
+		//SimpleDateFormatクラスでフォーマットパターンを設定する
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		//現在日付を取得
 		String today = sdf.format(new Date());
-
-		int count = tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, today);
-
+		
+		//APIを呼び出し、過去日の未入力数をカウント
+		int count = tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), 
+				Constants.DB_FLG_FALSE, today);
+		//取得した未入力カウント数が0より大きい場合、trueを返し、過去日未入力確認ダイアログを表示
 		if (count > 0) {
 			return true;
 		} else {
