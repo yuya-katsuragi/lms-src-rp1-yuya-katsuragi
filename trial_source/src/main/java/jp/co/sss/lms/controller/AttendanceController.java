@@ -42,10 +42,10 @@ public class AttendanceController {
 	 */
 	@RequestMapping(path = "/detail", method = RequestMethod.GET)
 	public String index(Model model) throws ParseException {
-		
+
+		// 葛城佑哉 – Task.25
 		boolean notEntered = studentAttendanceService.notEnterCount();
-		
-		model.addAttribute("notEntered",notEntered);
+		model.addAttribute("notEntered", notEntered);
 
 		// 勤怠一覧の取得
 		List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
