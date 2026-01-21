@@ -340,11 +340,10 @@ public class StudentAttendanceService {
 	/**
 	 * 現在より過去に未入力が無いかチェック
 	 * @return 過去に未入力データが存在する場合はtrue、存在しない場合はfalse
-	 * @author 葛城 - Task.25
 	 * @throws ParseException
 	 */
 	public boolean notEnterCount() throws ParseException {
-        
+        //@葛城 - Task.25
 		//SimpleDateFormatクラスでフォーマットパターンを設定する
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		//現在日付を取得
