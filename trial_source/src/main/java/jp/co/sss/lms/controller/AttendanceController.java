@@ -44,7 +44,7 @@ public class AttendanceController {
 	public String index(Model model) throws ParseException {
 
 		// 葛城佑哉 – Task.25
-		boolean notEntered = studentAttendanceService.notEnterCount();
+		boolean notEntered = studentAttendanceService.notEnterCheck();
 		model.addAttribute("notEntered", notEntered);
 
 		// 勤怠一覧の取得
