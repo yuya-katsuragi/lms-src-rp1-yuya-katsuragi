@@ -24,7 +24,7 @@
 			<form th:action="@{/attendance/update}" method="post">
 				<table class="table table-hover dataTable no-footer">
 					<thead>
-						<tr>
+						<tr  style="display: block; margin-top: -10px;">
 							<th class="w140">日付</th>
 							<th class="w300">コース内容</th>
 							<th class="w70">出勤</th>
@@ -34,7 +34,7 @@
 							<th class="w240">備考</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody style="display: block; height: 400px; min-height: 92vh; overflow-y: scroll;">
 						<th:block th:each="dailyAttendanceForm, stat : *{attendanceForm.attendanceList}">
 							<tr>
 								<th:block>
@@ -62,7 +62,7 @@
 									</select>
 								</td>
 								<td class="w70">[[${dailyAttendanceForm.statusDispName}]]</td>
-								<td class="w240">
+								<td class="w300">
 									<input type="text" th:name="|attendanceList[${stat.index}].note|" th:value="${dailyAttendanceForm.note}" class="form-control"></input>
 								</td>
 							</tr>
