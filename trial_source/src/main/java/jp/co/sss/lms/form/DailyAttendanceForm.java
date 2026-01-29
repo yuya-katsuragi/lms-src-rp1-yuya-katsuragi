@@ -58,5 +58,6 @@ public class DailyAttendanceForm {
 	/** 退勤時間（分） */
 	private Integer trainingEndTimeMinute;
 	
+	
 
 }
