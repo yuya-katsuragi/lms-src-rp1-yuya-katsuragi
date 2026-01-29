@@ -55,6 +55,7 @@
 								</th:block>
 								<td class="w140">[[${dailyAttendanceForm.dispTrainingDate}]]</td>
 								<td class="w140">[[${dailyAttendanceForm.sectionName}]]</td>
+								<!--葛城佑哉 – Task.26 定時用ボタンを追加-->
 								<td class="w60"><input type="button" class="btn btn-success default-button" value="定時"
 										th:onclick="|setTime(this, ${stat.index})|" /></td>
 								<!--葛城佑哉 – Task.26 時と分を分けるHTMLを実装し時と分を横並びにするためのCSSを追加-->
@@ -131,6 +132,7 @@
 		</div>
 	</div>
 	<script>
+		//葛城佑哉 – Task.28 定時ボタンを押下した際に自動入力されるJSを追加
 		function setTime(button, index) {
 
 			const row = button.closest('tr')
