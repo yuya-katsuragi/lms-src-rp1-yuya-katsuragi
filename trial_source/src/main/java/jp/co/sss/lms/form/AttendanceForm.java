@@ -31,10 +31,11 @@ public class AttendanceForm {
 	private LinkedHashMap<Integer, String> blankTimes;
 	/** 日次の勤怠フォームリスト */
 	private List<DailyAttendanceForm> attendanceList;
+	
+	//葛城佑哉-Task.26
 	/** 1時間刻みの時間 */
 	private LinkedHashMap<Integer, String> hourMap;
 	/** 1分刻みの時間 */
 	private LinkedHashMap<Integer, String> minuteMap;
 	
-
 }
